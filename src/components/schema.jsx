@@ -53,7 +53,8 @@ const FieldEditor = ({
       return (
         <div
           key={item.id}
-          className="field-item flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 bg-white/10 p-4 rounded-lg shadow-sm max-w-full overflow-x-auto"
+          className="field-item flex  flex-col gap-3
+sm:gap-4 bg-white/10 p-4 rounded-lg shadow-sm max-w-full overflow-x-auto"
         >
           <input
             placeholder="Field Name"
@@ -79,7 +80,7 @@ const FieldEditor = ({
           </button>
 
           {type === 'nested' && (
-            <div className="w-full mt-4 pl-4 border-l-2 border-blue-400">
+            <div className=" ml-6 mt-2 flex flex-col gap-2 border-l-2 border-blue-400 nested-editor-container"  style={{ width: '90%' }} >
               <FieldEditor
                 namePrefix={base}
                 control={control}
