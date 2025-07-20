@@ -43,32 +43,43 @@ const FieldEditor = ({
     });
   }, [watchedFields, setValue, fieldArrayName]);
 
-  return (
-    <div className="field-editor  glow-hover">
-      {fields.map((item, index) => {
-        const base = `${fieldArrayName}[${index}]`;
-        const typeName = `${base}.type`;
-        const type = watch(typeName);
+ return (
+  <div className="field-editor glow-hover px-4 py-6 space-y-4 max-w-full overflow-x-hidden ">
+    {fields.map((item, index) => {
+      const base = `${fieldArrayName}[${index}]`;
+      const typeName = `${base}.type`;
+      const type = watch(typeName);
 
-        return (
-          <div key={item.id} className="field-item">
-            <input
-              placeholder="Field Name"
-              {...register(`${base}.key`)}
-              className="input"
-            />
+      return (
+        <div
+          key={item.id}
+          className="field-item flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 bg-white/10 p-4 rounded-lg shadow-sm max-w-full overflow-x-auto"
+        >
+          <input
+            placeholder="Field Name"
+            {...register(`${base}.key`)}
+            className="input flex-1 px-3 py-2 rounded border border-gray-300 bg-white/90 text-black min-w-0"
+          />
 
-            <select {...register(typeName)} className="select">
-              <option value="string">String</option>
-              <option value="number">Number</option>
-              <option value="nested">Nested</option>
-            </select>
+          <select
+            {...register(typeName)}
+            className="select px-3 py-2 rounded border border-gray-300 bg-white/90 text-black"
+          >
+            <option value="string">String</option>
+            <option value="number">Number</option>
+            <option value="nested">Nested</option>
+          </select>
 
-            <button type="button" onClick={() => remove(index)} className="delete-btn">
-              ❌
-            </button>
+          <button
+            type="button"
+            onClick={() => remove(index)}
+            className="delete-btn text-red-600 hover:text-red-800 text-lg"
+          >
+            ❌
+          </button>
 
-            {type === 'nested' && (
+          {type === 'nested' && (
+            <div className="w-full mt-4 pl-4 border-l-2 border-blue-400">
               <FieldEditor
                 namePrefix={base}
                 control={control}
@@ -76,26 +87,27 @@ const FieldEditor = ({
                 setValue={setValue}
                 watch={watch}
               />
-            )}
-          </div>
-        );
-      })}
+            </div>
+          )}
+        </div>
+      );
+    })}
 
-    <div className="add-btn-wrapper">
-  <button
-    type="button"
-    onClick={() => append({ key: '', type: 'string' })}
-    disabled={!canAddField}
-    className={`add-btn ${canAddField ? '' : 'disabled'}`}
-  >
-    ➕ Add Field
-  </button>
-</div>
-
+    <div className="add-btn-wrapper flex justify-center">
+      <button
+        type="button"
+        onClick={() => append({ key: '', type: 'string' })}
+        disabled={!canAddField}
+        className={`add-btn mt-4 px-6 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition ${
+          canAddField ? '' : 'opacity-50 cursor-not-allowed'
+        }`}
+      >
+        ➕ Add Field
+      </button>
     </div>
-  );
+  </div>
+);
 };
-
 // LivePreview Component
 const LivePreview = ({ schema }) => {
   if (!schema || typeof schema !== 'object') return null;

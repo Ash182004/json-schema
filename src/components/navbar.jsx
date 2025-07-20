@@ -12,7 +12,7 @@ export default function Example() {
   return (
     
    <header
-  className="w-full max-w-7xl px-6 py-2 mt-2 mx-auto rounded-3xl sticky z-50 top-2 shadow-lg backdrop-blur-md border border-white/20 text-white"
+  className="w-full max-w-7xl px-5 py-0.2 mt-2 mx-auto rounded-3xl sticky z-50 top-2 shadow-lg backdrop-blur-md border border-white/20 text-white"
   style={{
     background: 'linear-gradient(to right, #020024, #090979, #00d4ff)',
   }}

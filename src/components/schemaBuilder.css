@@ -9,6 +9,7 @@
     z-index: 0;
   /* No background here, so it's pure glass effect */
 }
+
 .glow-hover {
   transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
 }
