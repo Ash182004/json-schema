@@ -1,0 +1,101 @@
+/* Full-page background and centering */
+.home-container {
+  width: 100vw;
+  height: 100vh;
+  
+  box-sizing: border-box;
+ 
+  z-index: 0;
+  display: flex;
+  
+  flex-direction: column;
+   background: inherit;
+  margin-top: 0px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar wrapper to center it at the very top */
+
+
+/* Center main welcome text */
+.tt {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Special styling for "Welcome to JSON Schema Maker!" */
+.welcome-font {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 5rem;
+  display: block;
+}
+
+/* Main typewriter content */
+.typewriter-text {
+  color: white;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  max-width: 850px;
+  font-weight: 400;
+  white-space: pre-line;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
+.blinking-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  width: 1px;
+  height: 1.2em;
+  background-color: white;
+  animation: blink 1s step-start infinite;
+}
+
+/* Responsive styling */
+
+@media (max-width: 1024px) {
+  .welcome-font {
+    font-size: 4rem;
+  }
+
+  .typewriter-text {
+    font-size: 1.25rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-font {
+    font-size: 2.8rem;
+  }
+
+  .typewriter-text {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-font {
+    font-size: 2rem;
+  }
+
+  .typewriter-text {
+    font-size: 0.95rem;
+  }
+}
+
+/* Cursor blinking animation */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}

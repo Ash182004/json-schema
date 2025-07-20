@@ -1,0 +1,8 @@
+@import "tailwindcss";
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #020024, #090979, #00d4ff);
+  /* ensure background covers viewport even if content is scrollable */
+  min-height: 100vh;
+}
