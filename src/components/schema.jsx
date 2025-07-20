@@ -309,7 +309,9 @@ const SchemaBuilder = () => {
   👁️ Live Preview:
 </h3>
 
-      <LivePreview schema={schema} />
+     <div className="live-preview-wrapper">
+  <LivePreview schema={schema} />
+</div>
     </div>
   );
 };
